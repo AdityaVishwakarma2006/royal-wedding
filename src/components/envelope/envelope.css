@@ -1,0 +1,249 @@
+
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, #792b37 0%, transparent 55%),
+    linear-gradient(135deg, #381017, #541923 50%, #351017);
+  color: #f7f0e5;
+}
+
+.envelope-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 3px,
+      #d2aa65 4px,
+      transparent 5px
+    );
+  mask-image: linear-gradient(
+    transparent,
+    black 30%,
+    black 70%,
+    transparent
+  );
+}
+
+.envelope-heading {
+  text-align: center;
+  margin-bottom: 55px;
+  position: relative;
+  z-index: 2;
+}
+
+.ganesh-symbol {
+  color: #e4c58b;
+  font-family: var(--font-tiro), serif;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.envelope-subtitle {
+  color: #d9c5a7;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.envelope-scene {
+  position: relative;
+  z-index: 2;
+  perspective: 1200px;
+}
+
+.envelope {
+  position: relative;
+  width: min(86vw, 400px);
+  height: 260px;
+  filter: drop-shadow(0 25px 35px #17080b80);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #c4a06a;
+  border-radius: 5px;
+}
+
+.invitation-card {
+  position: absolute;
+  width: 86%;
+  height: 225px;
+  left: 7%;
+  top: 15px;
+  z-index: 2;
+  padding: 10px;
+  background: #f7f0e5;
+  color: #541923;
+  box-shadow: 0 5px 20px #0003;
+}
+
+.card-border {
+  height: 100%;
+  border: 1px solid #c49a54;
+  outline: 1px solid #c49a54;
+  outline-offset: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-symbol {
+  color: #c49a54;
+  font-size: 25px;
+}
+
+.card-border h2 {
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+.card-border p {
+  font-size: 13px;
+}
+
+.card-divider {
+  width: 55%;
+  height: 1px;
+  background: #c49a54;
+  margin: 10px 0;
+}
+
+.card-names {
+  font-family: var(--font-cormorant), serif;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.envelope-fold {
+  position: absolute;
+  inset: 0;
+}
+
+.left-fold {
+  background: linear-gradient(135deg, #a13e47, #70212d);
+  clip-path: polygon(0 0, 50% 52%, 0 100%);
+}
+
+.right-fold {
+  background: linear-gradient(225deg, #8d303b, #621923);
+  clip-path: polygon(100% 0, 50% 52%, 100% 100%);
+}
+
+.bottom-fold {
+  background: linear-gradient(0deg, #541923, #8b303b);
+  clip-path: polygon(0 100%, 50% 46%, 100% 100%);
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: linear-gradient(145deg, #a84b50, #6e1d29);
+  clip-path: polygon(0 0, 100% 0, 50% 62%);
+  transform-origin: top center;
+  backface-visibility: visible;
+}
+
+.wax-seal {
+  position: absolute;
+  z-index: 7;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border: 2px solid #e1b86e;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e2b75e, #9b612a 75%);
+  color: #541923;
+  cursor: pointer;
+  box-shadow: 0 3px 12px #2b0d0d80;
+}
+
+.wax-seal span {
+  font-family: var(--font-tiro), serif;
+  font-size: 25px;
+}
+
+.open-invitation-button {
+  position: relative;
+  z-index: 2;
+  margin-top: 55px;
+  padding: 13px 32px;
+  border: 1px solid #d2aa65;
+  border-radius: 50px;
+  color: #f7f0e5;
+  background: transparent;
+  font-family: var(--font-mukta), sans-serif;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.open-invitation-button:hover {
+  background: #d2aa65;
+  color: #541923;
+}
+
+.open-invitation-button span {
+  margin-left: 10px;
+  color: #d2aa65;
+}
+
+.envelope-hint {
+  position: relative;
+  z-index: 2;
+  margin-top: 13px;
+  color: #d9c5a7;
+  font-size: 12px;
+}
+
+.envelope-footer {
+  position: absolute;
+  bottom: 25px;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #c8a36b;
+}
+
+@media (max-width: 480px) {
+  .envelope-heading {
+    margin-bottom: 40px;
+  }
+
+  .envelope {
+    height: 230px;
+  }
+
+  .invitation-card {
+    height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .open-invitation-button {
+    transition: none;
+  }
+}
