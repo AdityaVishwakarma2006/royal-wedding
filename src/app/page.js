@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import EventsTimeline from "@/components/EventsTimeline/EventsTimeline";
+import MemoryGallery from "@/components/MemoryGallery/MemoryGallery";
 
 import {
   MapPin,
@@ -272,6 +273,9 @@ export default function Home() {
           <span>01 / 09</span>
         </div>
       </section>
+
+        <MemoryGallery />
+
 
       {/* COUPLE */}
 

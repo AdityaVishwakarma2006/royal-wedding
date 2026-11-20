@@ -43,7 +43,7 @@ export const wedding = {
   ],
 
   photographs: {
-    hero: "/images/couple/aman-prachi-hero.webp",
+    hero: "/images/couple/aman-prachi-hero.jpeg",
     groom: "/images/couple/aman.webp",
     bride: "/images/couple/prachi.webp",
   },
