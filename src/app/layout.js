@@ -1,4 +1,4 @@
-
+import WeddingFrame from "@/components/WeddingFrame/WeddingFrame";
 import {
   Tiro_Devanagari_Hindi,
   Mukta,
@@ -47,10 +47,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="hi">
       <body
-        className={`${tiro.variable} ${mukta.variable} ${cormorant.variable} ${lato.variable}`}
-      >
-        {children}
-      </body>
+  className={`${tiro.variable} ${mukta.variable} ${cormorant.variable} ${lato.variable}`}
+>
+  <WeddingFrame />
+  {children}
+</body>
     </html>
   );
 }

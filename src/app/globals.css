@@ -140,53 +140,60 @@ img {
   padding: 50px 0;
 }
 
-.monogram {
+.hero-logo {
   position: relative;
-  width: 125px;
-  height: 145px;
-  margin: 0 auto 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-}
-
-.monogram-letters {
-  font-family: var(--font-heading), serif;
-  font-size: 95px;
-  font-weight: 400;
-  letter-spacing: -16px;
-  padding-right: 15px;
-  line-height: 1;
+  width: clamp(100px, 30vw, 145px);
+  margin: 10px auto 22px;
+  padding: 11px 9px;
+  border: 1px solid #a87a36;
+  border-radius: 3px;
   background: linear-gradient(
-    120deg,
-    #8b6331,
-    #d8b56e,
-    #a47a3f
+    90deg,
+    #d2a85e 0%,
+    #f6e5bd 12%,
+    #fffaf0 50%,
+    #f6e5bd 88%,
+    #d2a85e 100%
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  line-height: 0;
+  box-shadow:
+    inset 0 0 0 3px #fffaf0,
+    inset 0 0 0 4px #b9955b99,
+    0 10px 22px #49352d30;
 }
 
-.monogram-heart {
-  font-family: var(--font-heading), serif;
-  font-size: 24px;
-  position: relative;
-  top: -30px;
-  left: -3px;
-  letter-spacing: 0;
-}
-
-.monogram-star {
+.hero-logo::before,
+.hero-logo::after {
   position: absolute;
-  top: 0;
-  font-size: 17px;
+  left: -7px;
+  right: -7px;
+  height: 9px;
+  border: 1px solid #95682c;
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    #fbe9b8 0%,
+    #d3a34f 45%,
+    #f3d486 70%,
+    #a67632 100%
+  );
+  box-shadow: 0 2px 4px #49352d35;
+  content: "";
 }
 
-.bottom-star {
-  top: auto;
-  bottom: 0;
+.hero-logo::before {
+  top: -5px;
+}
+
+.hero-logo::after {
+  bottom: -5px;
+}
+
+.hero-logo img,
+.closing-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .hero-eyebrow {
@@ -761,11 +768,11 @@ img {
   max-width: 700px;
 }
 
-.closing-monogram {
-  font-family: var(--font-heading), serif;
-  font-size: 110px;
-  line-height: 1;
-  color: var(--gold);
+.closing-logo {
+  width: clamp(130px, 24vw, 190px);
+  margin: 0 auto 15px;
+  line-height: 0;
+  filter: drop-shadow(0 8px 14px #49352d18);
 }
 
 .closing-small {
@@ -833,15 +840,6 @@ img {
 
   .hero-content {
     padding: 45px 0;
-  }
-
-  .monogram {
-    width: 100px;
-    height: 115px;
-  }
-
-  .monogram-letters {
-    font-size: 75px;
   }
 
   .hero-subtitle {
@@ -1362,5 +1360,907 @@ img {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+
+/* =====================================================
+   ROYAL RAJASTHANI WEDDING FRAME
+===================================================== */
+
+.wedding-frame {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  color: #b9955b;
+}
+
+/* Outer border */
+
+.frame-outer {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid #b9955b;
+  opacity: 0.85;
+}
+
+/* Inner border */
+
+.frame-inner {
+  position: absolute;
+  inset: 15px;
+  border: 1px solid #b9955b66;
+}
+
+/* Corner ornaments */
+
+.frame-corner {
+  position: absolute;
+  z-index: 3;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  color: #a77e43;
+  background: var(--ivory);
+  text-shadow: 0 2px 8px #b9955b30;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Side jaali-inspired decorations */
+
+.frame-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 55%;
+  width: 24px;
+  color: #b9955b;
+  opacity: 0.65;
+}
+
+.frame-left {
+  left: 9px;
+  border-right: 1px solid #b9955b66;
+}
+
+.frame-right {
+  right: 9px;
+  border-left: 1px solid #b9955b66;
+}
+
+.frame-side span {
+  font-size: 14px;
+  animation: frame-glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes frame-glow {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Top toran */
+
+.frame-toran {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, 65vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame-toran-top {
+  top: 9px;
+  height: 45px;
+}
+
+.toran-line {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b9955b,
+    #b9955b,
+    transparent
+  );
+}
+
+.toran-hanging {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.toran-hanging span {
+  color: #a77e43;
+  font-size: 12px;
+  animation: toran-sway 3s ease-in-out infinite alternate;
+}
+
+.toran-hanging span:nth-child(even) {
+  animation-delay: 0.7s;
+}
+
+.toran-center {
+  position: absolute;
+  top: 0;
+  font-size: 25px;
+  color: #a77e43;
+  background: var(--ivory);
+  padding: 0 10px;
+}
+
+@keyframes toran-sway {
+  from {
+    transform: rotate(-8deg);
+  }
+
+  to {
+    transform: rotate(8deg);
+  }
+}
+
+/* Bottom border ornament */
+
+.frame-toran-bottom {
+  bottom: 9px;
+  height: 30px;
+}
+
+.toran-bottom-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b9955b,
+    #b9955b,
+    transparent
+  );
+}
+
+.toran-bottom-center {
+  position: absolute;
+  background: var(--ivory);
+  padding: 0 12px;
+  color: #a77e43;
+  font-size: 21px;
+}
+
+/* =====================================================
+   RAJASTHANI SECTION TRANSITIONS
+===================================================== */
+
+.wedding-decor {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 145px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: var(--gold);
+  background: var(--ivory);
+}
+
+/* Central ornament */
+
+.decor-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.decor-line {
+  width: clamp(40px, 12vw, 170px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold)
+  );
+}
+
+.decor-line:last-child {
+  transform: rotate(180deg);
+}
+
+.decor-arch {
+  position: relative;
+  width: 130px;
+  height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #b9955b88;
+  border-radius: 65px 65px 8px 8px;
+  background:
+    radial-gradient(circle, #d8c4a822, transparent 75%);
+}
+
+.decor-arch::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #b9955b55;
+  border-radius: 60px 60px 5px 5px;
+}
+
+.decor-arch-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gold);
+  animation: lotus-float 4s ease-in-out infinite;
+}
+
+@keyframes lotus-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+/* Side floral patterns */
+
+.decor-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  color: #b9955b;
+  opacity: 0.7;
+}
+
+.decor-side-left {
+  left: 7%;
+}
+
+.decor-side-right {
+  right: 7%;
+}
+
+.decor-side span {
+  font-size: 17px;
+}
+
+.decor-side span:nth-child(2) {
+  font-size: 25px;
+}
+
+/* Mandala variant */
+
+.wedding-decor-mandala .decor-arch {
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+}
+
+.wedding-decor-mandala .decor-arch::before {
+  border-radius: 50%;
+}
+
+.wedding-decor-mandala .decor-arch-inner {
+  animation: mandala-rotate 25s linear infinite;
+}
+
+@keyframes mandala-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Subtle background pattern */
+
+.wedding-decor::before,
+.wedding-decor::after {
+  content: "✧  ❋  ✧  ❋  ✧";
+  position: absolute;
+  color: #b9955b30;
+  font-size: 15px;
+  letter-spacing: 15px;
+  white-space: nowrap;
+}
+
+.wedding-decor::before {
+  top: 10px;
+}
+
+.wedding-decor::after {
+  bottom: 10px;
+}
+
+/* =====================================================
+   RESPONSIVE DECORATIONS
+===================================================== */
+
+@media (max-width: 700px) {
+  .frame-outer {
+    inset: 5px;
+  }
+
+  .frame-inner {
+    inset: 10px;
+  }
+
+  .frame-corner {
+    width: 37px;
+    height: 37px;
+    font-size: 23px;
+  }
+
+  .frame-left {
+    left: 5px;
+  }
+
+  .frame-right {
+    right: 5px;
+  }
+
+  .frame-side {
+    width: 13px;
+    height: 45%;
+  }
+
+  .frame-side span {
+    font-size: 9px;
+  }
+
+  .frame-toran {
+    width: 55vw;
+  }
+
+  .frame-toran-top {
+    top: 5px;
+    height: 27px;
+  }
+
+  .toran-hanging span {
+    font-size: 8px;
+  }
+
+  .toran-center {
+    font-size: 16px;
+  }
+
+  .frame-toran-bottom {
+    bottom: 5px;
+  }
+
+  .wedding-decor {
+    height: 115px;
+  }
+
+  .decor-arch {
+    width: 90px;
+    height: 85px;
+  }
+
+  .decor-arch-inner svg {
+    width: 65px;
+    height: 60px;
+  }
+
+  .decor-line {
+    width: 35px;
+  }
+
+  .decor-center {
+    gap: 10px;
+  }
+
+  .decor-side {
+    gap: 7px;
+  }
+
+  .decor-side-left {
+    left: 3%;
+  }
+
+  .decor-side-right {
+    right: 3%;
+  }
+
+  .decor-side span {
+    font-size: 10px;
+  }
+
+  .decor-side span:nth-child(2) {
+    font-size: 15px;
+  }
+
+  .wedding-decor-mandala .decor-arch {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .frame-side span,
+  .toran-hanging span,
+  .decor-arch-inner {
+    animation: none !important;
+  }
+}
+
+/* Keep important content away from the decorative frame */
+
+body {
+  padding: 20px;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 12px;
+  }
+}
+
+
+/* =========================================================
+   GRAND RAJASTHANI HAVELI ENTRANCE
+========================================================= */
+
+.hero-section {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at center, #f7e6c7 0%, #ead1a9 65%, #c49a70 100%);
+}
+
+/* Architecture scene */
+
+.haveli-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.haveli-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(255, 223, 162, 0.8),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #3b222b 0%,
+      #75413d 25%,
+      #b77d58 65%,
+      #e3c69b 100%
+    );
+  opacity: 0;
+}
+
+.haveli-palace {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: visible;
+  opacity: 0;
+}
+
+/* Doors */
+
+.haveli-door-left,
+.haveli-door-right {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Main entrance arch */
+
+.haveli-main-arch {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Toran and bells */
+
+.haveli-toran {
+  opacity: 0;
+  transform-origin: center;
+}
+
+.haveli-hanging-bell {
+  will-change: transform;
+}
+
+/* Golden particles */
+
+.haveli-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.haveli-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffe1a0;
+  box-shadow: 0 0 8px 2px #f5c76d77;
+  opacity: 0;
+  animation: haveli-dust 7s ease-in-out infinite;
+}
+
+@keyframes haveli-dust {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0) scale(0.5);
+  }
+
+  30% {
+    opacity: 0.8;
+  }
+
+  70% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(20px, -100px, 0) scale(1.2);
+  }
+}
+
+/* Couple content above the architecture */
+
+.hero-top,
+.hero-bottom {
+  position: relative;
+  z-index: 4;
+  color: #f6e2bd;
+  text-shadow: 0 1px 8px #4b2b2b88;
+}
+
+.hero-content {
+  z-index: 4;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(245, 235, 221, 0.97) 0%,
+      rgba(245, 235, 221, 0.88) 45%,
+      rgba(245, 235, 221, 0.25) 75%,
+      transparent 100%
+    );
+  border-radius: 50%;
+}
+
+.hero-eyebrow {
+  color: #54232d;
+}
+
+.hero-title {
+  text-shadow: 0 3px 20px #fff5e5;
+}
+
+.hero-subtitle {
+  color: #735443;
+}
+
+.hero-date {
+  color: #9b7138;
+}
+
+.hero-hindi {
+  color: #54232d;
+}
+
+.scroll-indicator {
+  color: #54232d;
+}
+
+/* Additional royal detail around hero photo */
+
+.hero-photo {
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(
+    135deg,
+    #f8e6bd,
+    #ae8143,
+    #f4d99d,
+    #80552e
+  );
+  box-shadow:
+    0 0 0 3px #f5e0b3,
+    0 0 0 5px #9c713c,
+    0 20px 60px #3c1e2540;
+}
+
+.hero-photo::before,
+.hero-photo::after {
+  content: "✦";
+  position: absolute;
+  z-index: 3;
+  color: #b58a49;
+  font-size: 25px;
+}
+
+.hero-photo::before {
+  top: -19px;
+  left: -19px;
+}
+
+.hero-photo::after {
+  bottom: -19px;
+  right: -19px;
+}
+
+/* =========================================================
+   HAVELI ARCHITECTURAL DETAILS
+========================================================= */
+
+/* Subtle warm vignette */
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(47, 25, 30, 0.17),
+      transparent 20%,
+      transparent 80%,
+      rgba(47, 25, 30, 0.17)
+    );
+}
+
+/* Preserve the grain over the background */
+
+.hero-grain {
+  z-index: 2;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 700px) {
+  .frame-toran,
+  .frame-side {
+    display: none;
+  }
+
+  .couple-heading h2,
+  .events-heading h2 {
+    font-size: clamp(36px, 11vw, 54px);
+  }
+
+  .frame-corner {
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    font-size: 15px;
+  }
+
+  .hero-section {
+    padding: 22px 8% 25px;
+  }
+
+  .hero-content {
+    padding: 35px 0;
+  }
+
+  .hero-photo {
+    width: min(290px, 72vw);
+  }
+
+  .hero-top,
+  .hero-bottom {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .haveli-particle {
+    box-shadow: 0 0 5px 1px #f5c76d66;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-content {
+    padding: 25px 0;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .haveli-particle {
+    animation: none;
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-section {
+    min-height: 100svh;
+    padding: 14px 14px 16px;
+  }
+
+  .hero-top,
+  .hero-bottom {
+    gap: 8px;
+    font-size: 7px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .hero-content {
+    max-width: 520px;
+    margin: auto 0;
+    padding: 14px 10px 18px;
+    border: 1px solid #b9955b55;
+    border-radius: 24px;
+    background: rgba(255, 250, 242, 0.84);
+    box-shadow: 0 12px 35px #49352d18;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-logo {
+    width: clamp(100px, 30vw, 120px);
+    margin-top: 5px;
+    margin-bottom: 17px;
+    padding: 9px 7px;
+  }
+
+  .hero-eyebrow {
+    margin: 8px 0 4px;
+    font-size: 21px;
+  }
+
+  .hero-subtitle {
+    margin: 5px 0 8px;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+  }
+
+  .hero-title {
+    margin: 8px 0;
+    font-size: clamp(36px, 10.5vw, 46px);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .hero-ampersand {
+    padding: 0 5px;
+  }
+
+  .hero-date {
+    margin: 8px 0 12px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .hero-photo {
+    width: min(190px, 52vw);
+    margin: 12px auto;
+    padding: 6px;
+  }
+
+  .hero-photo .photo-frame {
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .hero-photo::before,
+  .hero-photo::after {
+    font-size: 17px;
+  }
+
+  .hero-photo::before {
+    top: -13px;
+    left: -12px;
+  }
+
+  .hero-photo::after {
+    right: -12px;
+    bottom: -13px;
+  }
+
+  .hero-hindi {
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .scroll-indicator {
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+}
+
+@media (max-width: 380px) {
+  .hero-section {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .hero-content {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+
+  .hero-title {
+    font-size: clamp(33px, 10.5vw, 40px);
+  }
+
+  .hero-date {
+    letter-spacing: 1.5px;
+  }
+
+  .hero-photo {
+    width: min(170px, 50vw);
   }
 }

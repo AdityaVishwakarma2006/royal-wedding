@@ -1,6 +1,9 @@
 
 "use client";
 
+import HaveliEntrance from "@/components/HaveliEntrance/HaveliEntrance";
+import WeddingDecor from "@/components/WeddingDecor/WeddingDecor";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -73,20 +76,30 @@ function Countdown() {
 }
 
 function Photo({ src, alt, className = "" }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    if (imageRef.current?.complete && imageRef.current.naturalWidth === 0) {
+      setImageFailed(true);
+    }
+  }, [src]);
+
   return (
     <div className={`photo-frame ${className}`}>
       <div className="photo-placeholder">
         <span>{alt}</span>
       </div>
 
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        onError={(event) => {
-          event.currentTarget.style.display = "none";
-        }}
-      />
+      {!imageFailed && (
+        <img
+          ref={imageRef}
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onError={() => setImageFailed(true)}
+        />
+      )}
     </div>
   );
 }
@@ -105,7 +118,7 @@ export default function Home() {
       const intro = gsap.timeline();
 
       intro
-        .from(".monogram", {
+        .from(".hero-logo", {
           opacity: 0,
           scale: 0.65,
           duration: 1.3,
@@ -185,14 +198,6 @@ export default function Home() {
         ease: "sine.inOut",
       });
 
-      gsap.to(".hero-photo", {
-        y: -22,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
@@ -207,16 +212,22 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-grain" />
 
+        <HaveliEntrance />
+
         <div className="hero-top">
           <span className="hero-small">THE WEDDING CELEBRATION</span>
           <span className="hero-small">EST. 2026</span>
         </div>
 
         <div className="hero-content">
-          <div className="monogram">
-            <span className="monogram-star">✦</span>
-            <span className="monogram-letters">P<span className="monogram-heart">♡</span>A</span>
-            <span className="monogram-star bottom-star">✦</span>
+          <div className="hero-logo">
+            <Image
+              src="/images/heroicon/aman-prachi-logo.jpeg"
+              alt="Aman and Prachi's wedding logo"
+              width={440}
+              height={560}
+              priority
+            />
           </div>
 
           <p className="hero-eyebrow">
@@ -316,7 +327,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INVITATION */}
+<WeddingDecor variant="lotus" />
+
+{/* INVITATION */}
 
       <section id="invitation" className="invitation-section section-padding">
         <div className="invitation-decoration floating-flower">✿</div>
@@ -362,7 +375,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COUNTDOWN */}
+<WeddingDecor variant="mandala" />
+
+{/* COUNTDOWN */}
 
       <section className="countdown-section section-padding">
         <div className="reveal">
@@ -373,7 +388,10 @@ export default function Home() {
         </div>
       </section>
 
-      {<EventsTimeline />}
+<WeddingDecor variant="lotus" />
+
+<EventsTimeline />
+<WeddingDecor variant="mandala" />
 
       <section className="events-section section-padding">
         <div className="section-label reveal">
@@ -425,6 +443,9 @@ export default function Home() {
         </p>
       </section>
 
+
+<WeddingDecor variant="lotus" />
+
       {/* VENUE */}
 
       <section className="venue-section section-padding">
@@ -461,13 +482,23 @@ export default function Home() {
             <ArrowUpRight size={17} />
           </a>
         </div>
-      </section>
+</section>
+
+<WeddingDecor variant="mandala" />
+
 
       {/* FINAL COUNTDOWN / CLOSING */}
 
       <section className="closing-section section-padding">
         <div className="closing-content reveal">
-          <p className="closing-monogram">PA</p>
+          <div className="closing-logo">
+            <Image
+              src="/images/heroicon/aman-prachi-logo.jpeg"
+              alt=""
+              width={440}
+              height={560}
+            />
+          </div>
 
           <p className="closing-small">
             TWO FAMILIES. TWO HEARTS. ONE FOREVER.
