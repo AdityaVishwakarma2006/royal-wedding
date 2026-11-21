@@ -13,32 +13,39 @@ export const wedding = {
   },
 
   venue: {
-    name: "Jainam Manas Samiti",
-    hindiName: "जैनम मानस समिति",
-    address: "Airport ke saamne",
-    fullAddress: "Jainam Manas Samiti, Airport ke saamne",
+    name: "Jainam Manas Bhavan",
+    hindiName: "जैनम मानस भवन",
+    address: "In front of Airport, Raipur CG",
+    fullAddress: "Jainam Manas Bhavan, In front of Airport, Raipur CG",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Jainam%20Manas%20Samiti%2C%20Airport%20ke%20saamne",
+      "https://www.google.com/maps/search/?api=1&query=Jainam%20Manas%20Bhavan%2C%20In%20front%20of%20Airport%2C%20Raipur%20CG",
   },
 
   events: [
     {
+      day: "28",
+      month: "NOV",
+      title: "कुमकुम समारोह",
+      englishTitle: "Kumkum Ceremony",
+      description: "शुभ विवाह समारोहों का मंगलमय आरंभ।",
+      time: "प्रातः 09:00 बजे",
+    },
+    {
       day: "05",
       month: "DEC",
-      title: "विवाह उत्सव",
-      englishTitle: "Wedding Celebrations",
+      title: "हाथकम से संगीत",
+      englishTitle: "Hathkam, Carnival, Bira Mayra & Sangeet",
       description:
-        "दो परिवारों के मिलन और खुशियों के उत्सव का शुभारंभ।",
-      time: "समय एवं कार्यक्रम शीघ्र साझा होंगे",
+        "हाथकम, कार्निवल, बीरा मायरा और संगीत समारोह।",
+      time: "प्रातः 08:30 बजे से",
     },
     {
       day: "06",
       month: "DEC",
-      title: "शुभ विवाह",
-      englishTitle: "The Wedding Day",
-      description:
-        "प्रेम, परंपरा और सात फेरों के साथ एक नई शुरुआत।",
-      time: "समय एवं कार्यक्रम शीघ्र साझा होंगे",
+      title: "निकासी, फेरे एवं स्वागत",
+      englishTitle: "Nikasi, Fera & Reception",
+      description: "निकासी, विवाह के फेरे और स्वागत समारोह।",
+      time: "प्रातः 10:00 बजे से",
     },
   ],
 

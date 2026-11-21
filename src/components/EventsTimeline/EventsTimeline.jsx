@@ -14,11 +14,10 @@ const weddingDays = [
       {
         time: "09:00",
         period: "सुबह",
-        title: "विशेष आयोजन",
-        subtitle: "Special Ceremony",
-        description: "इस आयोजन का नाम परिवार से पुष्टि होने पर जोड़ा जाएगा।",
+        title: "कुमकुम",
+        subtitle: "Kumkum Ceremony",
+        description: "शुभ विवाह समारोहों का मंगलमय आरंभ।",
         icon: "✦",
-        pending: true,
       },
     ],
   },
@@ -32,36 +31,33 @@ const weddingDays = [
       {
         time: "08:30",
         period: "सुबह",
-        title: "प्रथम आयोजन",
-        subtitle: "Morning Ceremony",
-        description: "मंगलमय विवाह समारोह का शुभारंभ।",
+        title: "हाथकम",
+        subtitle: "Hathkam Ceremony",
+        description: "परिवार सहित हाथकम समारोह में सादर आमंत्रित।",
         icon: "❋",
-        pending: true,
       },
       {
-        time: "09:30",
+        time: "10:30",
         period: "सुबह",
-        title: "द्वितीय आयोजन",
-        subtitle: "Morning Celebration",
-        description: "परिवारजनों के साथ मांगलिक आयोजन।",
+        title: "कार्निवल",
+        subtitle: "Carnival",
+        description: "परिवार सहित कार्निवल समारोह में सादर आमंत्रित।",
         icon: "❋",
-        pending: true,
       },
       {
         time: "14:30",
         period: "दोपहर",
-        title: "मायरा",
-        subtitle: "Mayra Ceremony",
-        description: "नेहरा / मायरा समारोह — नाम की पुष्टि अपेक्षित।",
+        title: "बीरा मायरा",
+        subtitle: "Bira Mayra",
+        description: "परिवार सहित बीरा मायरा समारोह में सादर आमंत्रित।",
         icon: "❋",
-        pending: true,
       },
       {
         time: "20:00",
         period: "रात्रि",
         title: "संगीत",
-        subtitle: "The Musical Evening",
-        description: "गीत, संगीत, नृत्य और खुशियों से सजी एक यादगार शाम।",
+        subtitle: "Sangeet",
+        description: "संगीत समारोह में सपरिवार पधारें।",
         icon: "♫",
       },
     ],
@@ -77,33 +73,24 @@ const weddingDays = [
         time: "10:00",
         period: "सुबह",
         title: "निकासी",
-        subtitle: "The Wedding Procession",
-        description: "बैंड-बाजे और शाही अंदाज़ में बारात का प्रस्थान।",
+        subtitle: "Nikasi",
+        description: "निकासी समारोह में सपरिवार पधारें।",
         icon: "♛",
       },
       {
         time: "12:00",
         period: "दोपहर",
         title: "फेरे",
-        subtitle: "The Sacred Wedding Vows",
-        description: "अग्नि को साक्षी मानकर सात जन्मों का पवित्र बंधन।",
+        subtitle: "Fera",
+        description: "विवाह के फेरों के शुभ अवसर पर सपरिवार पधारें।",
         icon: "✧",
-      },
-      {
-        time: "15:00",
-        period: "दोपहर",
-        title: "विशेष आयोजन",
-        subtitle: "Afternoon Ceremony",
-        description: "इस आयोजन का नाम परिवार से पुष्टि होने पर जोड़ा जाएगा।",
-        icon: "❋",
-        pending: true,
       },
       {
         time: "20:00",
         period: "रात्रि",
         title: "स्वागत समारोह",
-        subtitle: "The Reception",
-        description: "आपकी उपस्थिति से हमारी खुशियों में चार चाँद लगेंगे।",
+        subtitle: "Reception",
+        description: "स्वागत समारोह में सपरिवार पधारें।",
         icon: "✦",
       },
     ],
@@ -143,14 +130,14 @@ export default function EventsTimeline() {
         </h2>
 
         <p className="timeline-heading-english">
-          Three days of love, laughter & celebrations
+          Celebrations across three memorable dates
         </p>
 
         <div className="timeline-flourish">✧ ❋ ✧</div>
       </div>
 
       <div className="timeline-days">
-        {weddingDays.map((day, dayIndex) => (
+        {weddingDays.map((day) => (
           <div className="timeline-day" key={day.date + day.month}>
             <div className="timeline-date-marker timeline-reveal">
               <div className="timeline-date-circle">

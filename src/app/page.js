@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import EventsTimeline from "@/components/EventsTimeline/EventsTimeline";
 import MemoryGallery from "@/components/MemoryGallery/MemoryGallery";
+import FamilyScroll from "@/components/FamilyScroll/FamilyScroll";
 
 import {
   MapPin,
@@ -331,6 +332,8 @@ export default function Home() {
         </div>
       </section>
 
+      <FamilyScroll />
+
 <WeddingDecor variant="lotus" />
 
 {/* INVITATION */}
@@ -399,7 +402,7 @@ export default function Home() {
 
       <section className="events-section section-padding">
         <div className="section-label reveal">
-          <span>02 — THE CELEBRATIONS</span>
+          <span>03 — THE CELEBRATIONS</span>
           <span>OUR WEDDING FESTIVITIES</span>
         </div>
 
@@ -422,7 +425,7 @@ export default function Home() {
 
               <div className="event-info">
                 <p className="event-number">
-                  DAY 0{index + 1}
+                  CELEBRATION 0{index + 1}
                 </p>
                 <h3>{event.title}</h3>
                 <p className="event-english">
@@ -443,7 +446,9 @@ export default function Home() {
         </div>
 
         <p className="events-note reveal">
-          More beautiful moments await. कार्यक्रम का विस्तृत विवरण शीघ्र साझा होगा।
+          We look forward to celebrating with you.
+          <br />
+          आपकी प्रतीक्षा रहेगी।
         </p>
       </section>
 
