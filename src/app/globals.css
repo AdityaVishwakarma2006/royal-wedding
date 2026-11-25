@@ -362,8 +362,10 @@ img {
 
 .person-photo .photo-frame {
   aspect-ratio: 3 / 4;
-  border: 9px solid var(--ivory);
-  box-shadow: 0 15px 30px #49352d18;
+  border: 9px solid #d5b77c;
+  box-shadow:
+    0 0 0 2px #9c713c,
+    0 15px 30px #49352d18;
 }
 
 .person-role {
