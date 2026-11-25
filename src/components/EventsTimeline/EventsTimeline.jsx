@@ -2,100 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
-
-const weddingDays = [
-  {
-    date: "28",
-    month: "NOVEMBER",
-    hindiMonth: "नवंबर",
-    year: "2026",
-    weekday: "शनिवार",
-    events: [
-      {
-        time: "09:00",
-        period: "सुबह",
-        title: "कुमकुम",
-        subtitle: "Kumkum Ceremony",
-        description: "शुभ विवाह समारोहों का मंगलमय आरंभ।",
-        icon: "✦",
-      },
-    ],
-  },
-  {
-    date: "05",
-    month: "DECEMBER",
-    hindiMonth: "दिसंबर",
-    year: "2026",
-    weekday: "शनिवार",
-    events: [
-      {
-        time: "08:30",
-        period: "सुबह",
-        title: "हाथकम",
-        subtitle: "Hathkam Ceremony",
-        description: "परिवार सहित हाथकम समारोह में सादर आमंत्रित।",
-        icon: "❋",
-      },
-      {
-        time: "10:30",
-        period: "सुबह",
-        title: "कार्निवल",
-        subtitle: "Carnival",
-        description: "परिवार सहित कार्निवल समारोह में सादर आमंत्रित।",
-        icon: "❋",
-      },
-      {
-        time: "14:30",
-        period: "दोपहर",
-        title: "बीरा मायरा",
-        subtitle: "Bira Mayra",
-        description: "परिवार सहित बीरा मायरा समारोह में सादर आमंत्रित।",
-        icon: "❋",
-      },
-      {
-        time: "20:00",
-        period: "रात्रि",
-        title: "संगीत",
-        subtitle: "Sangeet",
-        description: "संगीत समारोह में सपरिवार पधारें।",
-        icon: "♫",
-      },
-    ],
-  },
-  {
-    date: "06",
-    month: "DECEMBER",
-    hindiMonth: "दिसंबर",
-    year: "2026",
-    weekday: "रविवार",
-    events: [
-      {
-        time: "10:00",
-        period: "सुबह",
-        title: "निकासी",
-        subtitle: "Nikasi",
-        description: "निकासी समारोह में सपरिवार पधारें।",
-        icon: "♛",
-      },
-      {
-        time: "12:00",
-        period: "दोपहर",
-        title: "फेरे",
-        subtitle: "Fera",
-        description: "विवाह के फेरों के शुभ अवसर पर सपरिवार पधारें।",
-        icon: "✧",
-      },
-      {
-        time: "20:00",
-        period: "रात्रि",
-        title: "स्वागत समारोह",
-        subtitle: "Reception",
-        description: "स्वागत समारोह में सपरिवार पधारें।",
-        icon: "✦",
-      },
-    ],
-  },
-];
+import { wedding } from "@/data/wedding";
 
 export default function EventsTimeline() {
   useEffect(() => {
@@ -130,14 +37,14 @@ export default function EventsTimeline() {
         </h2>
 
         <p className="timeline-heading-english">
-          Celebrations across three memorable dates
+          The celebrations, dates and timings
         </p>
 
         <div className="timeline-flourish">✧ ❋ ✧</div>
       </div>
 
       <div className="timeline-days">
-        {weddingDays.map((day) => (
+        {wedding.eventDays.map((day) => (
           <div className="timeline-day" key={day.date + day.month}>
             <div className="timeline-date-marker timeline-reveal">
               <div className="timeline-date-circle">
@@ -149,6 +56,7 @@ export default function EventsTimeline() {
                 <span>{day.weekday}</span>
                 <h3>{day.hindiMonth} {day.year}</h3>
                 <small>{day.month} {day.date}, {day.year}</small>
+                <p className="timeline-date-location">{day.venue}</p>
               </div>
             </div>
 
@@ -188,9 +96,6 @@ export default function EventsTimeline() {
                       </span>
                     </div>
 
-                    <p className="timeline-event-description">
-                      {event.description}
-                    </p>
                   </div>
                 </article>
               ))}

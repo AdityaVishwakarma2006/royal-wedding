@@ -60,6 +60,7 @@ const familyGreetings = [
       "Shrimati Pooja & Mahendra Chopda",
       "Shrimati Khushbu & Purshottam Bohra",
       "Shrimati Poonam",
+      "Shrimati Kavita & Ajay Betala",
       "Swati",
       "Naysha",
     ],
@@ -74,7 +75,11 @@ const familySides = [
   },
   {
     title: "Chunri Paksh",
-    names: ["Nigina Ji Parakh", "Sambhav Ji Parakh"],
+    names: [
+      "Late Mahaveer Chand Ji Parakh",
+      "Manoj Kumar Ji Parakh",
+      "Naveen Kumar Ji Parakh",
+    ],
     location: "Raipur, CG",
   },
   {
@@ -86,7 +91,7 @@ const familySides = [
       "Nilesh Ji Bothra",
       "Sameer Ji",
       "Shubham Ji",
-      "Arham Ji",
+      "Arham Ji Bothra",
     ],
     location: "Rajim, CG",
   },
@@ -110,7 +115,7 @@ export default function FamilyScroll() {
       aria-labelledby="family-heading"
     >
       <div className="section-label family-section-label reveal">
-        <span>02 — OUR ROOTS</span>
+        <span>OUR ROOTS</span>
         <span>THE FAMILIES</span>
       </div>
 

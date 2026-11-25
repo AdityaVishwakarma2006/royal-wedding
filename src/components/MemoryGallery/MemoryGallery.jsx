@@ -16,9 +16,9 @@ const leftMemories = [
 ];
 
 const rightMemories = [
-  "/images/bride-standing.jpeg",
-  "/images/bride-garden.jpeg",
-  "/images/bride-full.jpeg",
+  "/images/bride-chain-1.jpeg",
+  "/images/bride-chain-2.jpeg",
+  "/images/bride-chain-3.jpeg",
 ];
 
 function HangingChain({ side, images }) {
@@ -40,7 +40,11 @@ function HangingChain({ side, images }) {
           </div>
 
           <div className="memory-frame">
-            <img src={src} alt="Wedding memory" loading="lazy" />
+            <img
+              src={src}
+              alt={`${side === "right" ? "Bride" : "Groom"} memory ${index + 1}`}
+              loading="lazy"
+            />
             <span className="memory-corner top-left" />
             <span className="memory-corner top-right" />
             <span className="memory-corner bottom-left" />

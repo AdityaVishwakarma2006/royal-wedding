@@ -35,10 +35,11 @@ const lato = Lato({
 export const metadata = {
   title: "Aman & Prachi | A Royal Celebration",
   description:
-    "अमन एवं प्राची के शुभ विवाह में सपरिवार सादर आमंत्रित। 5–6 दिसंबर 2026।",
+    "अमन एवं प्राची के शुभ विवाह में सपरिवार सादर आमंत्रित। 27 नवंबर और 3–6 दिसंबर 2026। जैनम मानस भवन, रायपुर।",
   openGraph: {
     title: "Aman & Prachi — Wedding Invitation",
-    description: "Join us in celebrating love and togetherness.",
+    description:
+      "Join us for the wedding celebrations on 27 November and 3–6 December 2026 at Jainam Manas Bhavan, Raipur.",
     type: "website",
   },
 };

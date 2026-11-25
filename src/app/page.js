@@ -14,8 +14,6 @@ import FamilyScroll from "@/components/FamilyScroll/FamilyScroll";
 
 import {
   MapPin,
-  CalendarDays,
-  Clock3,
   ArrowDown,
   ArrowUpRight,
   Heart,
@@ -170,27 +168,6 @@ export default function Home() {
         );
       });
 
-      gsap.utils.toArray(".event-card").forEach((element, index) => {
-        gsap.fromTo(
-          element,
-          {
-            opacity: 0,
-            x: index % 2 === 0 ? -45 : 45,
-          },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: element,
-              start: "top 88%",
-              once: true,
-            },
-          }
-        );
-      });
-
       gsap.to(".floating-flower", {
         y: -18,
         rotation: 8,
@@ -250,6 +227,11 @@ export default function Home() {
             {wedding.dates.display}
           </p>
 
+          <a className="hero-venue" href="#venue">
+            <MapPin size={15} />
+            {wedding.venue.hindiName} · रायपुर
+          </a>
+
           <div className="hero-photo">
             <Photo
               src={wedding.photographs.hero}
@@ -275,14 +257,50 @@ export default function Home() {
         </div>
       </section>
 
-        <MemoryGallery />
+      <EventsTimeline />
+      <WeddingDecor variant="mandala" />
 
+      <section id="venue" className="venue-section section-padding">
+        <div className="venue-inner reveal">
+          <p className="section-eyebrow">WHERE WE CELEBRATE</p>
+
+          <div className="venue-symbol">⌖</div>
+
+          <h2>Let&apos;s meet at</h2>
+          <h3>{wedding.venue.name}</h3>
+
+          <p className="venue-hindi">
+            {wedding.venue.hindiName}
+          </p>
+
+          <div className="venue-divider" />
+
+          <p className="venue-address">
+            {wedding.venue.address}
+          </p>
+
+          <p className="venue-date">
+            {wedding.dates.celebrations}
+          </p>
+
+          <a
+            href={wedding.venue.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="maps-link"
+          >
+            <MapPin size={18} />
+            GET DIRECTIONS
+            <ArrowUpRight size={17} />
+          </a>
+        </div>
+      </section>
 
       {/* COUPLE */}
 
       <section className="couple-section section-padding">
         <div className="section-label reveal">
-          <span>01 — THE PEOPLE</span>
+          <span>THE COUPLE</span>
           <span>MEET THE COUPLE</span>
         </div>
 
@@ -332,10 +350,6 @@ export default function Home() {
         </div>
       </section>
 
-      <FamilyScroll />
-
-<WeddingDecor variant="lotus" />
-
 {/* INVITATION */}
 
       <section id="invitation" className="invitation-section section-padding">
@@ -382,7 +396,7 @@ export default function Home() {
         </div>
       </section>
 
-<WeddingDecor variant="mandala" />
+      <FamilyScroll />
 
 {/* COUNTDOWN */}
 
@@ -395,108 +409,9 @@ export default function Home() {
         </div>
       </section>
 
-<WeddingDecor variant="lotus" />
-
-<EventsTimeline />
-<WeddingDecor variant="mandala" />
-
-      <section className="events-section section-padding">
-        <div className="section-label reveal">
-          <span>03 — THE CELEBRATIONS</span>
-          <span>OUR WEDDING FESTIVITIES</span>
-        </div>
-
-        <div className="events-heading reveal">
-          <p className="handwritten">Save the dates</p>
-          <h2>
-            A celebration
-            <br />
-            <span>of togetherness.</span>
-          </h2>
-        </div>
-
-        <div className="event-list">
-          {wedding.events.map((event, index) => (
-            <article className="event-card" key={event.day}>
-              <div className="event-date">
-                <span>{event.day}</span>
-                <small>{event.month}</small>
-              </div>
-
-              <div className="event-info">
-                <p className="event-number">
-                  CELEBRATION 0{index + 1}
-                </p>
-                <h3>{event.title}</h3>
-                <p className="event-english">
-                  {event.englishTitle}
-                </p>
-                <p className="event-description">
-                  {event.description}
-                </p>
-                <div className="event-time">
-                  <Clock3 size={15} />
-                  {event.time}
-                </div>
-              </div>
-
-              <div className="event-flower">✿</div>
-            </article>
-          ))}
-        </div>
-
-        <p className="events-note reveal">
-          We look forward to celebrating with you.
-          <br />
-          आपकी प्रतीक्षा रहेगी।
-        </p>
-      </section>
-
-
-<WeddingDecor variant="lotus" />
-
-      {/* VENUE */}
-
-      <section className="venue-section section-padding">
-        <div className="venue-inner reveal">
-          <p className="section-eyebrow">WHERE WE CELEBRATE</p>
-
-          <div className="venue-symbol">⌖</div>
-
-          <h2>Let's meet at</h2>
-          <h3>{wedding.venue.name}</h3>
-
-          <p className="venue-hindi">
-            {wedding.venue.hindiName}
-          </p>
-
-          <div className="venue-divider" />
-
-          <p className="venue-address">
-            {wedding.venue.address}
-          </p>
-
-          <p className="venue-date">
-            05 — 06 DECEMBER 2026
-          </p>
-
-          <a
-            href={wedding.venue.googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="maps-link"
-          >
-            <MapPin size={18} />
-            GET DIRECTIONS
-            <ArrowUpRight size={17} />
-          </a>
-        </div>
-</section>
-
-<WeddingDecor variant="mandala" />
-
-
       {/* FINAL COUNTDOWN / CLOSING */}
+
+      <MemoryGallery />
 
       <section className="closing-section section-padding">
         <div className="closing-content reveal">

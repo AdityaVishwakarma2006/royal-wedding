@@ -233,6 +233,21 @@ img {
   margin: 25px 0;
 }
 
+.hero-venue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: -8px 0 18px;
+  color: var(--burgundy);
+  font-family: var(--font-hindi), serif;
+  font-size: 15px;
+}
+
+.hero-venue:hover {
+  color: var(--gold);
+}
+
 .hero-photo {
   width: min(360px, 80vw);
   margin: 30px auto;
@@ -1084,6 +1099,13 @@ img {
   color: var(--muted);
 }
 
+.timeline-date-location {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--font-hindi), serif;
+  font-size: 13px;
+}
+
 /* Events track */
 
 .timeline-events {
@@ -1295,6 +1317,10 @@ img {
   .timeline-date-details small {
     font-size: 8px;
     letter-spacing: 1px;
+  }
+
+  .timeline-date-location {
+    font-size: 11px;
   }
 
   .timeline-events {
