@@ -9,71 +9,16 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import EventsTimeline from "@/components/EventsTimeline/EventsTimeline";
-import MemoryGallery from "@/components/MemoryGallery/MemoryGallery";
-import FamilyScroll from "@/components/FamilyScroll/FamilyScroll";
 
 import {
   MapPin,
   ArrowDown,
   ArrowUpRight,
-  Heart,
 } from "lucide-react";
 
 import { wedding } from "@/data/wedding";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-function Countdown() {
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const target = new Date(wedding.dates.start).getTime();
-
-    const update = () => {
-      const distance = target - Date.now();
-
-      if (distance <= 0) {
-        setTime({
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-        });
-        return;
-      }
-
-      setTime({
-        days: Math.floor(distance / 86400000),
-        hours: Math.floor((distance % 86400000) / 3600000),
-        minutes: Math.floor((distance % 3600000) / 60000),
-        seconds: Math.floor((distance % 60000) / 1000),
-      });
-    };
-
-    update();
-    const timer = setInterval(update, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="countdown">
-      {Object.entries(time).map(([label, value]) => (
-        <div className="countdown-item" key={label}>
-          <span className="countdown-number">
-            {String(value).padStart(2, "0")}
-          </span>
-          <span className="countdown-label">{label}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 function Photo({ src, alt, className = "" }) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -295,163 +240,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
-      {/* COUPLE */}
-
-      <section className="couple-section section-padding">
-        <div className="section-label reveal">
-          <span>THE COUPLE</span>
-          <span>MEET THE COUPLE</span>
-        </div>
-
-        <div className="couple-heading reveal">
-          <p className="handwritten">Two souls, one story</p>
-          <h2>
-            Made for
-            <br />
-            <span>each other.</span>
-          </h2>
-        </div>
-
-        <div className="couple-grid">
-          <div className="person person-groom reveal">
-            <div className="person-photo">
-              <Photo
-                src={wedding.photographs.groom}
-                alt="Aman"
-              />
-            </div>
-            <p className="person-role">THE GROOM</p>
-            <h3>{wedding.groom}</h3>
-            <p className="person-note">A little bit of tradition, a lot of love.</p>
-          </div>
-
-          <div className="couple-heart reveal">
-            <Heart size={32} strokeWidth={1} />
-            <span>TOGETHER</span>
-          </div>
-
-          <div className="person person-bride reveal">
-            <div className="person-photo">
-              <Photo
-                src={wedding.photographs.bride}
-                alt="Prachi"
-              />
-            </div>
-            <p className="person-role">THE BRIDE</p>
-            <h3>{wedding.bride}</h3>
-            <p className="person-note">Grace, warmth and endless smiles.</p>
-          </div>
-        </div>
-
-        <div className="couple-bottom-note reveal">
-          <span>✳</span>
-          A story written in the stars.
-        </div>
-      </section>
-
-{/* INVITATION */}
-
-      <section id="invitation" className="invitation-section section-padding">
-        <div className="invitation-decoration floating-flower">✿</div>
-
-        <div className="invitation-content reveal">
-          <p className="invitation-top">॥ श्री गणेशाय नमः ॥</p>
-
-          <div className="invitation-ornament">❋</div>
-
-          <p className="invitation-kicker">स्नेह निमंत्रण</p>
-
-          <h2>शुभ विवाह</h2>
-
-          <div className="invitation-divider">
-            <span />
-            ✦
-            <span />
-          </div>
-
-          <p className="invitation-copy">
-            हर्ष और उल्लास के इस पावन अवसर पर,
-            <br />
-            हमारे परिवारों के मिलन एवं
-            <br />
-            अमन और प्राची के शुभ विवाह में
-            <br />
-            आपकी गरिमामयी उपस्थिति
-            <br />
-            एवं शुभाशीर्वाद की अपेक्षा है।
-          </p>
-
-          <p className="invitation-ending">
-            सपरिवार पधारकर हमें अनुगृहीत करें।
-          </p>
-
-          <div className="invitation-names">
-            {wedding.groom} <span>&</span> {wedding.bride}
-          </div>
-
-          <p className="invitation-date">
-            {wedding.dates.hindi}
-          </p>
-        </div>
-      </section>
-
-      <FamilyScroll />
-
-{/* COUNTDOWN */}
-
-      <section className="countdown-section section-padding">
-        <div className="reveal">
-          <p className="section-eyebrow">THE BIG DAY IS APPROACHING</p>
-          <h2>Counting down to forever.</h2>
-          <p className="countdown-hindi">शुभ घड़ी का इंतज़ार</p>
-          <Countdown />
-        </div>
-      </section>
-
-      {/* FINAL COUNTDOWN / CLOSING */}
-
-      <MemoryGallery />
-
-      <section className="closing-section section-padding">
-        <div className="closing-content reveal">
-          <div className="closing-logo">
-            <Image
-              src="/images/heroicon/aman-prachi-logo.jpeg"
-              alt=""
-              width={440}
-              height={560}
-            />
-          </div>
-
-          <p className="closing-small">
-            TWO FAMILIES. TWO HEARTS. ONE FOREVER.
-          </p>
-
-          <h2>
-            एक नई शुरुआत,
-            <br />
-            <span>सात जन्मों का साथ।</span>
-          </h2>
-
-          <p className="closing-names">
-            {wedding.groom} & {wedding.bride}
-          </p>
-
-          <div className="closing-divider">✦</div>
-
-          <p className="closing-thanks">
-            आपकी उपस्थिति ही हमारे लिए
-            <br />
-            सबसे बड़ा उपहार है।
-          </p>
-
-          <p className="closing-footer">
-            WITH LOVE, THE FAMILIES
-          </p>
-        </div>
-      </section>
-
     </main>
   );
 }

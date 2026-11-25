@@ -1223,11 +1223,12 @@ img {
 }
 
 .timeline-event-body h4 {
-  font-family: var(--font-hindi), serif;
-  font-size: 31px;
-  font-weight: 400;
+  font-family: var(--font-mukta), sans-serif;
+  font-size: 36px;
+  font-weight: 600;
   color: var(--burgundy);
   margin: 0;
+  line-height: 1.4;
 }
 
 .timeline-event-subtitle {
@@ -1350,7 +1351,7 @@ img {
   }
 
   .timeline-event-body h4 {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   .timeline-event-subtitle {
